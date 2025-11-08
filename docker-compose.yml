@@ -1,15 +1,15 @@
 services:
   n8n:
-    image: docker.n8n.io/n8nio/n8n
+    image: n8nio/base:16
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     restart: always
-    # user: root
+    user: root
     ports:
       - "5678:5678"
-    # entrypoint:
-    #     - chown
-    # command: -R node:node /home/node/.n8n
+    entrypoint:
+        - chown
+    command: -R node:node /home/node/.n8n
     volumes:
         - ~/.n8n:/home/node/.n8n
     # environment:
